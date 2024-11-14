@@ -1,7 +1,6 @@
 
 array = [81, 62, 73, 94, 75, 66, 54, 90, 10, 34];
 
-
 const checkExcellentScores = (array)=>{
     let result = array.filter((number) => number >= 70)
 
@@ -11,17 +10,17 @@ const checkExcellentScores = (array)=>{
 console.log(checkExcellentScores(array));
 
 const addBonusMark = (array)=>{
-    let result = array.map((number)=>{
-        let answer = number + 5;
-        return answer
+    return array.map((number) => {
+        return number + 5
     });
-    return result;
 }
 console.log(addBonusMark(array));
 
 const squareNumbers = (array)=>{
-    let result = array.map((number)=>{
-        let answer = number * number;
+    let result;
+    result = array.map((number) => {
+        let answer;
+        answer = number * number;
         return answer
     });
     return result;
@@ -31,7 +30,8 @@ console.log(squareNumbers(array));
 
 const classTimings = ["9:00 AM", "11:00 AM", "1:00 PM", "3:00 PM", "5:00 PM"];
 function getAfternoonClasses(classTimings) {
-    let result = classTimings.filter(time => time.includes("PM") && time !== "12:00 PM");
+    let result;
+    result = classTimings.filter(time => time.includes("PM") && time !== "12:00 PM");
     return result
 }
 
@@ -137,19 +137,13 @@ const orders = [
 ];
 
 function summarizeFilteredOrders(orders) {
-    return orders.map(order => {
-        const totalCost = order.items.map(item => item.price * item.quantity)
-            .reduce((sum, cost) => sum + cost, 0);
-
-        return { ...order, totalCost };
-    })
-        .filter(order => order.totalCost <= 100)
+    return orders
         .map(order => ({
             orderId: order.id,
-            totalCost: order.totalCost
-        }));
+            totalCost: order.items.reduce((sum, item) => sum + item.price * item.quantity, 0)
+        }))
+        .filter(order => order.totalCost <= 100);
 }
-
 
 console.log(summarizeFilteredOrders(orders));
 

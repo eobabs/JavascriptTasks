@@ -79,7 +79,7 @@ test("test that Amy gets ONLY healthy fruits", ()=>{
     expect(result).toEqual(answer)
 })
 
-test ("test that each score produces corresponding grades", () =>{
+test("test that each score produces corresponding grades", () =>{
     const studentScores = [95, 78, 85, 60, 45, 92];
     let result = getLetterGrades(studentScores);
     let answer = [ 'A', 'C', 'B', 'D', 'F', 'A' ]
